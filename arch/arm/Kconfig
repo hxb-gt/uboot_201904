@@ -410,6 +410,11 @@ config TARGET_EDB93XX
 	select CPU_ARM920T
 	select PL010_SERIAL
 
+config TARGET_TQ2440
+	bool "Support tq2440"
+	select CPU_ARM920T
+	select SUPPORT_SPL
+
 config TARGET_ASPENITE
 	bool "Support aspenite"
 	select CPU_ARM926EJS
@@ -1621,6 +1626,7 @@ source "board/xilinx/Kconfig"
 source "board/xilinx/zynq/Kconfig"
 source "board/xilinx/zynqmp/Kconfig"
 source "board/zipitz2/Kconfig"
+source "board/embedsky/tq2440/Kconfig"
 
 source "arch/arm/Kconfig.debug"
 

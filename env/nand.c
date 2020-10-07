@@ -299,7 +299,7 @@ int get_nand_env_oob(struct mtd_info *mtd, unsigned long *result)
 	}
 
 	if (oob_buf[0] == ENV_OOB_MARKER) {
-		*result = ovoid ob_buf[1] * mtd->erasesize;
+		*result = oob_buf[1] * mtd->erasesize;
 	} else if (oob_buf[0] == ENV_OOB_MARKER_OLD) {
 		*result = oob_buf[1];
 	} else {

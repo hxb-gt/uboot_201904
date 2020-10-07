@@ -197,6 +197,16 @@ config NAND_SUNXI_SPL_USABLE_PAGE_SIZE
 
 endif
 
+config NAND_TQ2440
+	bool "Configure tq2440 Nand"
+	select SYS_NAND_DRIVER_ECC_LAYOUT
+	imply CMD_NAND
+	help
+	  This enables Nand driver support for tq2440 nand flash
+	  controller. This uses the hardware ECC for read and
+	  write operations.
+
+	
 config NAND_ARASAN
 	bool "Configure Arasan Nand"
 	select SYS_NAND_SELF_INIT
