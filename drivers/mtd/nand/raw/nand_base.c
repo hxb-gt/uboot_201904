@@ -3717,7 +3717,8 @@ struct nand_flash_dev *nand_get_flash_type(struct mtd_info *mtd,
 	 * after power-up.
 	 */
 	nand_reset(chip, 0);
-
+	
+	
 	/* Select the device */
 	chip->select_chip(mtd, 0);
 
@@ -3970,7 +3971,7 @@ int nand_scan_ident(struct mtd_info *mtd, int maxchips,
 	/* Read the flash type */
 	type = nand_get_flash_type(mtd, chip, &nand_maf_id,
 				   &nand_dev_id, table);
-
+	
 	if (IS_ERR(type)) {
 		if (!(chip->options & NAND_SCAN_SILENT_NODEV))
 			pr_warn("No NAND device found\n");
@@ -4611,8 +4612,10 @@ int nand_scan(struct mtd_info *mtd, int maxchips)
 	int ret;
 
 	ret = nand_scan_ident(mtd, maxchips, NULL);
+	
 	if (!ret)
 		ret = nand_scan_tail(mtd);
+	
 	return ret;
 }
 EXPORT_SYMBOL(nand_scan);

@@ -9,6 +9,7 @@ obj-y	+= cpu.o
 
 obj-$(CONFIG_EP93XX) += ep93xx/
 obj-$(CONFIG_IMX) += imx/
+obj-$(CONFIG_S3C24XX) += s3c24xx/
 
 # some files can only build in ARM mode
 

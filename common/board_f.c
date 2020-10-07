@@ -700,6 +700,7 @@ static int reloc_bloblist(void)
 
 static int setup_reloc(void)
 {
+
 	if (gd->flags & GD_FLG_SKIP_RELOC) {
 		debug("Skipping relocation due to flag\n");
 		return 0;

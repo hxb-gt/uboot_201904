@@ -870,3 +870,31 @@ bool str2long(const char *p, ulong *num)
 	*num = simple_strtoul(p, &endptr, 16);
 	return *p != '\0' && *endptr == '\0';
 }
+
+void printf_array(void *buf, int count, char type_size, char line_cnt)
+{
+	int i = 0;
+	char *buf_tmp = buf;
+
+	printf("\nstart:");
+	while (i < count) {
+		if ((i % line_cnt) == 0) printf("\n\t");
+		switch (type_size) {
+		case 1:
+		default:
+			printf("0x%02x,", *((unsigned char*)buf_tmp));
+			break;
+		case 2:
+			printf("0x%04x,", *((unsigned short*)buf_tmp));
+			break;
+		case 4:
+			printf("0x%08x,", *((unsigned int*)buf_tmp));
+			break;
+		}
+		i++;
+		buf_tmp += type_size;
+	}
+	printf("\n");
+}
+
+

@@ -1,0 +1,15 @@
+if TARGET_TQ2440
+
+config SYS_SOC
+	default "s3c24xx"
+
+config SYS_VENDOR
+	default "embedsky"
+
+config SYS_BOARD
+	default "tq2440"
+
+config SYS_CONFIG_NAME
+	default "embedsky_tq2440"
+
+endif

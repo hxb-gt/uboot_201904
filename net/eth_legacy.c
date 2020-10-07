@@ -130,6 +130,7 @@ static int on_ethaddr(const char *name, const char *value, enum env_op op,
 }
 U_BOOT_ENV_CALLBACK(ethaddr, on_ethaddr);
 
+
 int eth_write_hwaddr(struct eth_device *dev, const char *base_name,
 		   int eth_number)
 {
@@ -137,6 +138,9 @@ int eth_write_hwaddr(struct eth_device *dev, const char *base_name,
 	int ret = 0;
 
 	eth_env_get_enetaddr_by_index(base_name, eth_number, env_enetaddr);
+	
+	printf_array(env_enetaddr, ARP_HLEN, sizeof(env_enetaddr[0]), 8);
+//	printf_array(dev->enetaddr, ARP_HLEN, sizeof(env_enetaddr[0]), 8);
 
 	if (!is_zero_ethaddr(env_enetaddr)) {
 		if (!is_zero_ethaddr(dev->enetaddr) &&

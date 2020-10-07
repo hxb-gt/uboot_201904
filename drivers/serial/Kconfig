@@ -333,6 +333,14 @@ config DEBUG_UART_MXC
 	  Select this to enable a debug UART using the serial_mxc driver. You
 	  will need to provide parameters to make this work. The driver will
 	  be available until the real driver model serial is running.
+	  
+config DEBUG_UART_S3C24XX
+	bool "S3C24XX Serial port"
+	depends on S3C24XX_UART
+	help
+	  Select this to enable a debug UART using the serial_s3c24xx driver. You
+	  will need to provide parameters to make this work. The driver will
+	  be available until the real driver model serial is running.
 
 config DEBUG_UART_SANDBOX
 	bool "sandbox"
@@ -555,6 +563,12 @@ config MXC_UART
 	depends on MX5 || MX6
 	help
 	  If you have a machine based on a Motorola IMX CPU you
+	  can enable its onboard serial port by enabling this option.
+	  
+config S3C24XX_UART
+	bool "s3c24xx serial port support"
+	help
+	  If you have a machine based on a sansun s3c24xx CPU you
 	  can enable its onboard serial port by enabling this option.
 
 config NULLDEV_SERIAL

@@ -56,4 +56,6 @@ void fputc(int file, const char c);
 int ftstc(int file);
 int fgetc(int file);
 
+void printf_array(void *buf, int count, char type_size, char line_cnt);
+
 #endif /* __STDIO_H */
